@@ -1,1 +1,34 @@
 /*css website wide style sheet*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.logo img{
+    width: 100px;
+    height: auto;
+}
+
+.nav-links{
+    display: flex;
+    gap: 30px
+}
+
+#try-interactive-demo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.three-d-visuals img {
+    width: 250px;
+    height: auto
+}
