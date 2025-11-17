@@ -32,3 +32,44 @@ nav{
     width: 250px;
     height: auto
 }
+
+.projects-grid, .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow-x: auto;
+    grid-auto-flow: column;
+}
+
+.project-card img {
+    width: 200px;
+    height: auto
+}
+
+.media-item img {
+    width: 300px;
+    height: auto
+}
+.faq-question{
+    display: flex;
+    align-items: center;
+}
+
+.faq-item img {
+    width: 30px;
+    height: auto;
+    display: block;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links img {
+    width: 80px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 24px;
+}
