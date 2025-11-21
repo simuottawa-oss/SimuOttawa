@@ -5,6 +5,7 @@
     box-sizing: border-box;
     color: white;
     z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 nav{
     display: flex;
@@ -22,7 +23,25 @@ nav{
 
 .nav-links{
     display: flex;
-    gap: 30px
+    gap: 30px;   
+}
+
+.nav-links a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nav-links button{
+    padding: 5px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 16px;
+    border: 1px solid #fff;
+    background: white;
+    color: black;
+    cursor: pointer;
+    transition: 0.25s;
 }
 
 #try-interactive-demo{
@@ -171,11 +190,49 @@ nav{
 #projects {
     padding: 80px 10%;
 }
+#projects h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
 
 #media {
     padding: 80px 10%;
 }
 
+#media h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
 #faq {
     padding: 80px 10%;
+    width: 80%;
+}
+
+#faq h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#faq .faq-item{
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.faq-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.faq-answer {
+    line-height: 1.6;
+    color: #ccc;       
 }
