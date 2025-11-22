@@ -1,0 +1,238 @@
+/*css website wide style sheet*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.logo img{
+    width: 100px;
+    height: auto;
+}
+
+.nav-links{
+    display: flex;
+    gap: 30px;   
+}
+
+.nav-links a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nav-links button{
+    padding: 5px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 16px;
+    border: 1px solid #fff;
+    background: white;
+    color: black;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#try-interactive-demo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.three-d-visuals img {
+    width: 250px;
+    height: auto
+}
+
+.projects-grid, .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    overflow-x: auto;
+    grid-auto-flow: column;
+}
+
+.project-card img {
+    width: 200px;
+    height: auto
+}
+
+.media-item img {
+    width: 300px;
+    height: auto
+}
+.faq-question{
+    display: flex;
+    align-items: center;
+}
+
+.faq-item img {
+    width: 30px;
+    height: auto;
+    display: block;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links img {
+    width: 80px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 24px;
+}
+
+.whole-background {
+  padding: 20px 60px;
+  position: relative;
+  min-height: 100vh;
+  background-color: #000;
+
+  /* --- GRID LINES --- */
+  background-image:
+      linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ===== TOP GRADIENT ===== */
+.whole-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 0, 128, 0.35),
+      rgba(0, 0, 0, 0) 10%
+    );
+}
+
+/* ===== BOTTOM GRADIENT ===== */
+.whole-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(255, 0, 128, 0.35),
+      rgba(0, 0, 0, 0) 10%
+    );
+}
+
+
+#try-interactive-demo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px 10%;
+    position: relative;
+    color: #fff;
+}
+
+.try-interactive-demo-content h1 {
+  font-size: 40px;
+  line-height: 1.3;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.try-interactive-demo-meta {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.try-interactive-demo-btn {
+  padding: 8px 22px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 14px;
+  border: 1px solid #fff;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transition: 0.25s;
+
+}
+
+.try-interactive-demo-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#about {
+    padding: 80px 10%;
+}
+
+#about h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#projects {
+    padding: 80px 10%;
+}
+#projects h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#media {
+    padding: 80px 10%;
+}
+
+#media h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#faq {
+    padding: 80px 10%;
+    width: 80%;
+}
+
+#faq h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#faq .faq-item{
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.faq-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.faq-answer {
+    line-height: 1.6;
+    color: #ccc;       
+}
