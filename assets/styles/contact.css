@@ -83,7 +83,6 @@ html, body{
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
-  padding: clamp(16px, 6vw, 80px);
   padding-top: 40px;
   padding-bottom: 0;
 }
@@ -91,13 +90,13 @@ html, body{
 .main-box1{
   background-color: rgb(18, 18, 18);
   border-radius: 20px; 
-  min-height: 450px;
+  min-height: clamp(18rem, 45vh, 28rem);
 }
 
 .main-box2{
   background-color: rgb(18, 18, 18);
   border-radius: 20px;
-  min-height: 450px;
+  min-height: clamp(18rem, 45vh, 28rem);
   display: grid;
   grid-template-columns: 1fr;
   align-content: start;
@@ -115,10 +114,10 @@ html, body{
   display: flex;
   align-items: center;
   color: white;
-  padding: 30px;
-  font-size: larger;
   text-align: center;
   position: relative;
+  padding: 30px;
+  font-size: larger;
   padding-right: 80px;
   margin: 0;
 }
@@ -132,7 +131,7 @@ html, body{
 .contact-box{
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: clamp(1.25rem, 4vw, 2rem);
   height: 100%;
 }
 
@@ -157,7 +156,7 @@ html, body{
   background-color: #121212;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 10px;
-  padding: 12px 14px;
+  padding: clamp(0.7rem, 2vw, 0.9rem);
   font-size: 16px;
   color: white;
 }
