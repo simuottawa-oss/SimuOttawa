@@ -1,0 +1,158 @@
+/* Media Page Styles */
+
+.media-page {
+    padding: 2rem;
+    width: 100%;
+}
+
+.media-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.media-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: #ccc;
+}
+
+.media-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Individual Media Post Card */
+.media-post-card {
+    background: grey;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Media Type Badge */
+.media-type {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 1rem 1rem 0.5rem 1rem;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+/* Media Type Color Variations */
+.media-post-card.instagram .media-type {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.media-post-card.live-event .media-type {
+    background: #ff6b6b;
+    color: white;
+}
+
+.media-post-card.release .media-type {
+    background: #51cf66;
+    color: white;
+}
+
+.media-post-card.feature .media-type {
+    background: #4c6ef5;
+    color: white;
+}
+
+.media-post-card.milestone .media-type {
+    background: #ffa94d;
+    color: white;
+}
+
+.media-post-card.youtube .media-type {
+    background: #d70a0a;
+    color: white;
+}
+
+/* Post Title */
+.post-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.5rem 1rem;
+    color: #333;
+    line-height: 1.3;
+}
+
+/* Post Thumbnail */
+.post-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin: 0.5rem 0;
+}
+
+/* Post Description */
+.post-description {
+    padding: 0 1rem;
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin: 0.5rem 0;
+}
+
+/* Post Date */
+.post-date {
+    display: block;
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .media-feed {
+        grid-template-columns: 1fr;
+    }
+
+    .media-page h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .media-page {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .media-page h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .post-title {
+        font-size: 1.1rem;
+    }
+
+    .post-thumbnail {
+        height: 150px;
+    }
+
+    .media-feed {
+        gap: 1.5rem;
+    }
+}
