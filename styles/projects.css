@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+    
+  html, body{
+    overflow-x: hidden;
+    background: #000;
+  }
+    
+  .whole-background{
+    padding: 20px clamp(16px, 5vw, 60px);
+    position: relative;
+    min-height: 100vh;
+    background-color: #000;
+
+    display: flex;
+    flex-direction: column;
+    
+    background-image:
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    overflow-x: hidden;
+  }
+    
+  .whole-background::before{
+    content:"";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(to bottom,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
+    }
+  
+  .whole-background::after{
+    content:"";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(to top,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
+  }
+    
+  .whole-background > *{
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+
+  .main-box{
+    position: relative;
+    flex: 1;
+    margin-top: 40px;
+  }
+    
+  .main-text{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 50px;
+    font-weight: bold;
+    color: whitesmoke;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .main-subtext{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: whitesmoke;
+    margin-top: 12px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .main-boxes{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 60px;
+    padding-bottom: 0;
+  }
+
+  .project-box{
+    background-color: rgb(18, 18, 18);
+    border-radius: 40px; 
+    min-height: clamp(16rem, 34vh, 22rem);
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+  }
+
+  .main-box1 img, .main-box2 img, .main-box3 img, .main-box4 img{
+    width: 250px;
+  }
+  .project-img img{
+    flex-shrink: 0;
+    width: clamp(10rem, 22vw, 16rem);
+  }
+      
+  .socials{
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 1rem 0;
+    z-index: 10;
+    margin-top: 32px;
+  }
+    
+  .social-images{
+    place-self: center;
+  }
+    
+  .logo{
+    width: 80px;
+  }
+    
+  .linkedin, .instagram, .discord{
+    width: 55px;
+    padding-bottom: 15px;
+  }
+    
+  .social-text{
+    color: white;
+    text-align: center;
+  }
+  
+  @media (max-width: 700px) {
+    .project-box{
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .project-img img {
+      width: clamp(8rem, 40vw, 12rem);
+    }
+
+  }
