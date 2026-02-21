@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulator Ottawa</title>
     <link rel="stylesheet" href="styles/stylesheet.css">
+    <link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
     <div class="whole-background">
         <nav>
             <div class="logo">
-                <img src="images/simu_logo.svg" alt ='Simuottawa'>
+                <img src="../images/simu_logo.svg" alt ='Simuottawa'>
             </div>
             <ul class="nav-links">
-                <li><a href="Frontend\about.html">About</a></li>
-                <li><a href="Frontend\projects.html">Projects</a></li>
-                <li><a href="Frontend\media.html">Media</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="Frontend/about.html">About</a></li>
+                <li><a href="Frontend/projects.html">Projects</a></li>
+                <li><a href="Frontend/media.html">Media</a></li>
                 <li><a href="Frontend/faq.html">FAQ</a></li>
-                <li><a href="Frontend\contact.html">Contact</a></li>
-                <li><button onclick="location.href='another-page.html'">Join us -></button></li>
+                <li><a href="Frontend/contact.html" >Contact</a></li>
+                <li><button onclick="location.href='join-us.html'">Join us &rarr;</button></li>
             </ul>   
-        </nav>
+          </nav>
 
         <section id = 'try-interactive-demo'>
             <div class="try-interactive-demo-content">
@@ -132,14 +134,14 @@
         </section>
 
 
-        <footer id="socials">
-            <div class="social-links">
-                <img src="images/simu_logo.svg" alt="">
-                <a href="#" title="LinkedIn">in</a>
-                <a href="#" title="Instagram">📷</a>
-                <a href="#" title="Discord">💬</a>
+        <footer class="socials">
+            <div class="social-images">
+              <a href="index.html"><img class="logo" src="images/simu_logo.svg" alt=""> </a>
+              <a href="https://www.linkedin.com/feed/"><img class="linkedin-footer" src="images/linkedin.svg" alt=""> </a>
+              <a href="https://www.instagram.com/"><img class="instagram-footer" src="images/instagram.svg" alt=""> </a>
+              <a href="https://discord.com/channels/@me"><img class="discord-footer" src="images/discord.svg" alt=""> </a>
             </div>
-            <p style="color: #666; margin-top: 20px;">© 2025 SimuO. All rights reserved.</p>
+            <div class="social-text">&#169 2025 SimuO. All rights reserved.</div>
         </footer>
     </div>
     
