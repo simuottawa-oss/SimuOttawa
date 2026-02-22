@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/nav.css">
+  </head>
+
+  <body>
+    <div class="whole-background">
+      <nav>
+        <div class="logo">
+            <img src="../images/simu_logo.svg" alt ='SimuOttawa'>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><button onclick="location.href='join-us.html'">Join us &rarr;</button></li>
+        </ul>   
+      </nav>
+
+      <div class="main-box">
+
+        <div class="main-text">Contact Us</div>
+        <div class="main-subtext">Got a question? We would love to hear from you. <br> Reach out to our team through email or socials.</div>
+
+        <div class="main-boxes">
+          <div class="main-box1">
+            <div class="contact-box">
+              <h2>Message Us</h2>
+              <p class="contact-subtext">Have a question or want to get involved? Send us a message.</p>
+
+              <form class="contact-form" id="contact-form">
+                <input type="text" name="name" placeholder="Your name" required /> 
+                <input type="email" name="email" placeholder="Your email" required />
+                <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+                <button type="submit" id="send-btn">Send Message</button>
+              </form>
+
+            </div>
+          </div>
+          <div class="main-box2">
+            <div class="social-box-text">Socials</div>
+            <div class="discord-text">
+              <p>Want to participate or contact our dev team? <br> <a href="https://discord.com/channels/@me" style="color: white;">Join the Discord!</a>&#8618;</p>
+              <img class="box-images" src="../images/discord.svg" alt="">
+            </div>
+            <div class="instagram-text">
+              <p>Message us on <a href="https://www.instagram.com/" style="color: white;">Instagram</a>&#8618; for casual questions</p>
+              <img class="box-images" src="../images/instagram.svg" alt="">
+            </div>
+            <div class="linkedin-text">
+              <p>Follow our <a href="https://www.linkedin.com/feed/" style="color: white;">LinkedIn</a>&#8618; for event announcements <br> and opportunities</p>
+              <img class="box-images" src="../images/linkedin.svg" alt="">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="socials">
+        <div class="social-images">
+          <a href="index.html"><img class="logo" src="../images/simu_logo.svg" alt=""> </a>
+          <a href="https://www.linkedin.com/feed/"><img class="linkedin" src="../images/linkedin.svg" alt=""> </a>
+          <a href="https://www.instagram.com/"><img class="instagram" src="../images/instagram.svg" alt=""> </a>
+          <a href="https://discord.com/channels/@me"><img class="discord" src="../images/discord.svg" alt=""> </a>
+        </div>
+        <div class="social-text">&#169 2025 SimuO. All rights reserved.</div>
+      </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../Backend/contact.js"></script>
+
+  </body>
+</html>
