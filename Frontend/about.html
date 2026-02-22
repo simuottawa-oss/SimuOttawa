@@ -1,14 +1,85 @@
 <!DOCTYPE html>
-
-<header>
-    <div>
-        <ul>
-            <li><a href="index.html">Back</a></li>
-        </ul>
-    </div>
-</header>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="../styles/stylesheet.css">
+</head>
 <body>
-    <title>About us</title>
-    <h1>Dave Deboulfaber</h1>
+    <div class="whole-background">
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/simu_logo.svg" alt ='Simuottawa'>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button onclick="location.href='join-us.html'">Join us -></button></li>
+            </ul>
+        </nav>
+
+        <section id="about">
+            <h1>About SimuOttawa</h1>
+
+            <div class="about-content">
+                <div class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>
+                        SimuOttawa is a student-led club dedicated to developing SimuO, an open-sourced 3D physics engine that accurately replicates real-life simulations. We're committed to creating cutting-edge tools that bridge the gap between theoretical physics and practical application, enabling researchers and developers to model complex systems with precision.
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <h2>What We Do</h2>
+                    <p>
+                        Every year, our team pushes the boundaries of simulation technology by building upon previous iterations and introducing new capabilities. Our members work on diverse roles and projects, from optimizing user experience to expanding the engine's computational power. The result is a versatile platform that can be integrated into real-world product development and scientific research.
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <h2>For Students</h2>
+                    <p>
+                        We provide undergraduate STEM students at the University of Ottawa with hands-on experience in:
+                    </p>
+                    <ul class="about-list">
+                        <li><strong>Software Development:</strong> Learn both high and low-level programming languages like Python, C++, and more</li>
+                        <li><strong>Physics & Mathematics:</strong> Apply concepts fundamental to 3D simulation and game design</li>
+                        <li><strong>Project Management:</strong> Develop leadership and organizational skills while working on real products</li>
+                        <li><strong>Professional Growth:</strong> Build a portfolio that impresses employers and prepare for careers in tech, research, or entrepreneurship</li>
+                    </ul>
+                    <p>
+                        We understand the competitive job market and are committed to equipping our members with the skills and experience needed to succeed.
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <h2>Why SimuOttawa?</h2>
+                    <p>
+                        Beyond technical skills, joining SimuOttawa means becoming part of a collaborative community of passionate engineers and creators. Whether you're interested in game development, scientific computing, or exploring the intersection of physics and technology, we have a place for you.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <footer id="socials">
+            <div class="social-links">
+                <img src="../images/simu_logo.svg" alt="">
+                <a href="#" title="LinkedIn">in</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Discord">💬</a>
+            </div>
+            <p style="color: #666; margin-top: 20px;">© 2025 SimuO. All rights reserved.</p>
+        </footer>
+    </div>
+
+
+
 </body>
+</html>
