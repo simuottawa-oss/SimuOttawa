@@ -1,0 +1,30 @@
+.socials{
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 1rem 0;
+    z-index: 10;
+    margin-top: 32px;
+  }
+
+  .social-images{
+    place-self: center;
+  }
+
+  .logo{
+    width: 80px;
+  }
+
+  .linkedin-footer, .instagram-footer, .discord-footer{
+    width: 45px;
+    padding-bottom: 15px;
+  }
+
+  .discord-footer{
+    padding-bottom: 20px;
+  }
+
+  .social-text{
+    color: white;
+    text-align: center;
+  }
