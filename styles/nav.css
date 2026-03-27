@@ -1,6 +1,7 @@
 nav{
   display: flex;
   justify-content: space-between;
+  position: relative;
   z-index: 2;
 }
     
@@ -42,7 +43,7 @@ nav{
   padding: 5px 15px;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid #fff;
   background: white;
   color: black;

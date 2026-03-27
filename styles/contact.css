@@ -1,6 +1,4 @@
 body.contact-page *{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -8,9 +6,6 @@ body.contact-page *{
 body.contact-page{
   overflow-x: hidden;
   background: #000;
-}
-
-html, body.contact-page{
   height: 100%;
   margin: 0;
 }
@@ -48,8 +43,9 @@ body.contact-page .whole-background::after{
   z-index: 0;
   background: linear-gradient(to top,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
 }
-  
-body.contact-page .whole-background > *{
+
+body.contact-page .main-box,
+body.contact-page footer.socials{
   position: relative;
   z-index: 1;
   color: white;
@@ -198,7 +194,7 @@ body.contact-page .contact-form button:hover{
 }
 
 @media (max-width: 900px){
-  .main-boxes{
+  body.contact-page .main-boxes{
     grid-template-columns: 1fr;
     gap: 24px;
   }
