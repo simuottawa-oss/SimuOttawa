@@ -1,17 +1,22 @@
-*{
+body.contact-page *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
   
-html, body{
+body.contact-page{
   overflow-x: hidden;
   background: #000;
 }
+
+html, body.contact-page{
+  height: 100%;
+  margin: 0;
+}
   
-.whole-background{
-  padding: 20px clamp(16px, 5vw, 60px);
+body.contact-page .whole-background{
+  padding: 20px 60px;
   position: relative;
   min-height: 100vh;
   background-color: #000;
@@ -26,7 +31,7 @@ html, body{
   overflow-x: hidden;
 }
   
-.whole-background::before{
+body.contact-page .whole-background::before{
   content:"";
   position: absolute;
   inset: 0;
@@ -35,7 +40,7 @@ html, body{
   background: linear-gradient(to bottom,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
   }
 
-.whole-background::after{
+body.contact-page .whole-background::after{
   content:"";
   position: absolute;
   inset: 0;
@@ -44,20 +49,20 @@ html, body{
   background: linear-gradient(to top,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
 }
   
-.whole-background > *{
+body.contact-page .whole-background > *{
   position: relative;
   z-index: 1;
   color: white;
 }
   
 
-.main-box{
+body.contact-page .main-box{
   position: relative;
   flex: 1;
   margin-top: 40px;
 }
   
-.main-text{
+body.contact-page .main-text{
   display: flex;
   justify-content: center;
   width: 100%;
@@ -68,7 +73,7 @@ html, body{
   text-align: center;
 }
   
-.main-subtext{
+body.contact-page .main-subtext{
   display: flex;
   justify-content: center;
   width: 100%;
@@ -79,7 +84,7 @@ html, body{
   text-align: center;
 }
   
-.main-boxes{
+body.contact-page .main-boxes{
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
@@ -87,13 +92,13 @@ html, body{
   padding-bottom: 0;
 }
   
-.main-box1{
+body.contact-page .main-box1{
   background-color: rgb(18, 18, 18);
   border-radius: 20px; 
   min-height: clamp(18rem, 45vh, 28rem);
 }
 
-.main-box2{
+body.contact-page .main-box2{
   background-color: rgb(18, 18, 18);
   border-radius: 20px;
   min-height: clamp(18rem, 45vh, 28rem);
@@ -103,14 +108,16 @@ html, body{
   gap: 10px;
 }
   
-.social-box-text{
+body.contact-page .social-box-text{
   color: white;
   font-weight: bold;
   font-size: 40px;
   padding: 15px;
 }
   
-.instagram-text, .discord-text, .linkedin-text{
+body.contact-page .instagram-text, 
+body.contact-page .discord-text, 
+body.contact-page .linkedin-text{
   display: flex;
   align-items: center;
   color: white;
@@ -122,37 +129,38 @@ html, body{
   margin: 0;
 }
 
-.box-images{
+body.contact-page .box-images{
   position: absolute;
   width: 55px;
   right: 20px;
 }
 
-.contact-box{
+body.contact-page .contact-box{
   display: flex;
   flex-direction: column;
   padding: clamp(1.25rem, 4vw, 2rem);
   height: 100%;
 }
 
-.contact-box h2{
+body.contact-page .contact-box h2{
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-.contact-subtext{
+body.contact-page .contact-subtext{
   color: white;
   margin-bottom: 25px;
 }
 
-.contact-form{
+body.contact-page .contact-form{
   display: flex;
   flex-direction: column;
   gap: 15px;
   flex: 1;
 }
 
-.contact-form input, .contact-form textarea{
+body.contact-page .contact-form input, 
+body.contact-page .contact-form textarea{
   background-color: #121212;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 10px;
@@ -161,16 +169,18 @@ html, body{
   color: white;
 }
 
-.contact-form input::placeholder, .contact-form textarea::placeholder{
+body.contact-page .contact-form input::placeholder, 
+body.contact-page .contact-form textarea::placeholder{
   color: #888;
 }
 
-.contact-form input:focus, .contact-form textarea:focus{
+body.contact-page .contact-form input:focus, 
+body.contact-page .contact-form textarea:focus{
   border-color: rgba(255, 0, 128, 0.6);
   outline: none;
 }
 
-.contact-form button{
+body.contact-page .contact-form button{
   align-self: flex-start;
   padding: 10px 22px;
   font-size: 16px;
@@ -183,36 +193,8 @@ html, body{
   transition: 0.25s;
 }
 
-.contact-form button:hover{
+body.contact-page .contact-form button:hover{
   background: rgba(255,255,255,0.75);
-}
-
-  
-.socials{
-  display: grid;
-  grid-template-columns: 1fr;
-  place-items: center;
-  padding: 1rem 0;
-  z-index: 10;
-  margin-top: 32px;
-}
-  
-.social-images{
-  place-self: center;
-}
-  
-.logo{
-  width: 80px;
-}
-  
-.linkedin, .instagram, .discord{
-  width: 55px;
-  padding-bottom: 15px;
-}
-  
-.social-text{
-  color: white;
-  text-align: center;
 }
 
 @media (max-width: 900px){
