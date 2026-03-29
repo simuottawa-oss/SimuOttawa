@@ -14,9 +14,9 @@ body {
     margin: 0;
 }
 
-nav{
-    display: flex;
-    justify-content: space-between;
+.logo img{
+    width: 100px;
+    height: auto;
 }
 
 #try-interactive-demo{
@@ -56,11 +56,24 @@ nav{
     display: block;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links img {
+    width: 80px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 24px;
+}
 
 .whole-background {
   display: flex;
   flex-direction: column;
-  padding: 20px 60px;
+  padding: 20px clamp(16px, 5vw, 60px);
   position: relative;
   overflow: hidden;
   min-height: 100vh;
