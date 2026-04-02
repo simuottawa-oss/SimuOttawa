@@ -1,7 +1,6 @@
 nav{
   display: flex;
   justify-content: space-between;
-  position: relative;
   z-index: 2;
 }
     
@@ -43,7 +42,7 @@ nav{
   padding: 5px 15px;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #fff;
   background: white;
   color: black;
@@ -132,60 +131,3 @@ nav{
     font-size: 8px;
   }
 }
-
-/* ---- Footer (shared) ---- */
-
-/* Variant A: footer#socials .social-links (index/about/faq) */
-#socials .social-links{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-
-#socials .social-links img{
-  width: 64px;
-  height: auto;
-}
-
-#socials .social-links a{
-  color: #fff;
-  font-size: 20px;
-}
-
-/* Variant B: footer.socials .social-images (contact/media) */
-footer.socials{
-  display: grid;
-  grid-template-columns: 1fr;
-  place-items: center;
-  padding: 1rem 0;
-  z-index: 10;
-  margin-top: 32px;
-}
-
-footer.socials .social-images{
-  place-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-footer.socials .social-images img.logo{
-  width: 80px;
-  height: auto;
-}
-
-footer.socials .social-images img.linkedin,
-footer.socials .social-images img.instagram,
-footer.socials .social-images img.discord{
-  width: 55px;
-  height: auto;
-  padding-bottom: 15px;
-}
-
-footer.socials .social-text{
-  color: white;
-  text-align: center;
-}
-  

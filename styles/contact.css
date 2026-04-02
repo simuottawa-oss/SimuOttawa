@@ -1,32 +1,32 @@
-body.contact-page *{
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-  
-body.contact-page{
-  overflow-x: hidden;
-  background: #000;
-  height: 100%;
-  margin: 0;
-}
-  
-body.contact-page .whole-background{
-  padding: 20px 60px;
-  position: relative;
-  min-height: 100vh;
-  background-color: #000;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+    
+  html, body{
+    overflow-x: hidden;
+    background: #000;
+  }
+    
+  .whole-background{
+    padding: 20px clamp(16px, 5vw, 60px);
+    position: relative;
+    min-height: 100vh;
+    background-color: #000;
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    
+    background-image:
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    overflow-x: hidden;
+  }
   
-  background-image:
-  linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
-  linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 30px 30px;
-  overflow-x: hidden;
-}
-  
-body.contact-page .whole-background::before{
+.whole-background::before{
   content:"";
   position: absolute;
   inset: 0;
@@ -35,7 +35,7 @@ body.contact-page .whole-background::before{
   background: linear-gradient(to bottom,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
   }
 
-body.contact-page .whole-background::after{
+.whole-background::after{
   content:"";
   position: absolute;
   inset: 0;
@@ -44,21 +44,21 @@ body.contact-page .whole-background::after{
   background: linear-gradient(to top,rgba(255, 0, 128, 0.35),rgba(0, 0, 0, 0) 23%);
 }
 
-body.contact-page .main-box,
-body.contact-page footer.socials{
+.main-box,
+footer.socials{
   position: relative;
   z-index: 1;
   color: white;
 }
   
 
-body.contact-page .main-box{
+.main-box{
   position: relative;
   flex: 1;
   margin-top: 40px;
 }
   
-body.contact-page .main-text{
+.main-text{
   display: flex;
   justify-content: center;
   width: 100%;
@@ -69,7 +69,7 @@ body.contact-page .main-text{
   text-align: center;
 }
   
-body.contact-page .main-subtext{
+.main-subtext{
   display: flex;
   justify-content: center;
   width: 100%;
@@ -80,7 +80,7 @@ body.contact-page .main-subtext{
   text-align: center;
 }
   
-body.contact-page .main-boxes{
+.main-boxes{
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
@@ -88,13 +88,13 @@ body.contact-page .main-boxes{
   padding-bottom: 0;
 }
   
-body.contact-page .main-box1{
+.main-box1{
   background-color: rgb(18, 18, 18);
   border-radius: 20px; 
   min-height: clamp(18rem, 45vh, 28rem);
 }
 
-body.contact-page .main-box2{
+.main-box2{
   background-color: rgb(18, 18, 18);
   border-radius: 20px;
   min-height: clamp(18rem, 45vh, 28rem);
@@ -104,16 +104,16 @@ body.contact-page .main-box2{
   gap: 10px;
 }
   
-body.contact-page .social-box-text{
+.social-box-text{
   color: white;
   font-weight: bold;
   font-size: 40px;
   padding: 15px;
 }
   
-body.contact-page .instagram-text, 
-body.contact-page .discord-text, 
-body.contact-page .linkedin-text{
+.instagram-text, 
+.discord-text, 
+.linkedin-text{
   display: flex;
   align-items: center;
   color: white;
@@ -124,39 +124,38 @@ body.contact-page .linkedin-text{
   padding-right: 80px;
   margin: 0;
 }
-
-body.contact-page .box-images{
+.box-images{
   position: absolute;
   width: 55px;
   right: 20px;
 }
 
-body.contact-page .contact-box{
+.contact-box{
   display: flex;
   flex-direction: column;
   padding: clamp(1.25rem, 4vw, 2rem);
   height: 100%;
 }
 
-body.contact-page .contact-box h2{
+.contact-box h2{
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-body.contact-page .contact-subtext{
+.contact-subtext{
   color: white;
   margin-bottom: 25px;
 }
 
-body.contact-page .contact-form{
+.contact-form{
   display: flex;
   flex-direction: column;
   gap: 15px;
   flex: 1;
 }
 
-body.contact-page .contact-form input, 
-body.contact-page .contact-form textarea{
+.contact-form input, 
+.contact-form textarea{
   background-color: #121212;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 10px;
@@ -165,18 +164,18 @@ body.contact-page .contact-form textarea{
   color: white;
 }
 
-body.contact-page .contact-form input::placeholder, 
-body.contact-page .contact-form textarea::placeholder{
+.contact-form input::placeholder, 
+.contact-form textarea::placeholder{
   color: #888;
 }
 
-body.contact-page .contact-form input:focus, 
-body.contact-page .contact-form textarea:focus{
+.contact-form input:focus, 
+.contact-form textarea:focus{
   border-color: rgba(255, 0, 128, 0.6);
   outline: none;
 }
 
-body.contact-page .contact-form button{
+.contact-form button{
   align-self: flex-start;
   padding: 10px 22px;
   font-size: 16px;
@@ -189,12 +188,12 @@ body.contact-page .contact-form button{
   transition: 0.25s;
 }
 
-body.contact-page .contact-form button:hover{
+.contact-form button:hover{
   background: rgba(255,255,255,0.75);
 }
 
 @media (max-width: 900px){
-  body.contact-page .main-boxes{
+.main-boxes{
     grid-template-columns: 1fr;
     gap: 24px;
   }
