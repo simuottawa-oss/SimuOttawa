@@ -1,18 +1,23 @@
+const contactForm = document.getElementById("contact-form");
+const sendMessageButton = document.getElementById("send-btn");
+
 emailjs.init("Y_YNhVxgJXdIdhPb0");
 
+if (contactForm instanceof HTMLFormElement && sendMessageButton instanceof HTMLButtonElement) {
+  contactForm.addEventListener("submit", (submitEvent) => {
+    submitEvent.preventDefault();
+    sendMessageButton.disabled = true;
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  sendButton.disabled = true;
-  document.getElementById("send-btn").sendForm("service_prxclaq", "template_11decp9", form)
-
-  .then(() => {
-    document.getElementById("contact-form").reset();
-    document.getElementById("send-btn").disabled = false;
-  })
-  .catch((err) => {
-    alert("Message failed to send. Please try again later.");
-    document.getElementById("send-btn").disabled = false;
+    emailjs
+      .sendForm("service_prxclaq", "template_11decp9", contactForm)
+      .then(() => {
+        contactForm.reset();
+        sendMessageButton.disabled = false;
+      })
+      .catch((submissionError) => {
+        console.error("Email submission failed.", submissionError);
+        alert("Message failed to send. Please try again later.");
+        sendMessageButton.disabled = false;
+      });
   });
-
-});
+}

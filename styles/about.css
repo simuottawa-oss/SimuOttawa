@@ -1,0 +1,118 @@
+/* About page styles (overrides shared stylesheet where needed) */
+
+#about {
+  padding: clamp(40px, 6vw, 80px) 0;
+  position: relative;
+  z-index: 1;
+}
+
+#about h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: clamp(28px, 5vw, 60px);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(18px, 3vw, 40px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 1080p-class layouts: 2x2 grid */
+@media (min-width: 900px) {
+  .about-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Larger monitors: show all 4 sections in a row */
+@media (min-width: 2000px) {
+  .about-content {
+    max-width: 2000px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  border-radius: 12px;
+  padding: clamp(18px, 3vw, 30px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.about-section:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 0, 128, 0.6);
+  transform: translateY(-5px);
+}
+
+.about-section h2 {
+  font-size: clamp(18px, 2.2vw, 24px);
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Justified, readable body copy across screen shapes */
+.about-section p,
+.about-list li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #ddd;
+
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.about-section p {
+  margin-bottom: 15px;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.about-list {
+  list-style: none;
+  margin: 20px 0;
+  padding-left: 0;
+}
+
+.about-list li {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.about-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 0, 128, 0.7);
+  font-weight: bold;
+}
+
+/* Prevent ultra-wide lines in very wide cards */
+@media (min-width: 1100px) {
+  .about-section p,
+  .about-list li {
+    max-width: 70ch;
+  }
+}
+
+/* Slightly tighter spacing on very small screens */
+@media (max-width: 420px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}

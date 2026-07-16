@@ -1,0 +1,5 @@
+This documentation file is intended to document all ARCHITECTURAL changes to our software. This is written as if im talking to a child. 
+
+July 16, 2026 - Nathan Ng
+- made SQL database for login data (check db\dbPersons\dbPersons.sql)
+- saves login data when start_user.sql is ran

@@ -1,27 +1,35 @@
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-        const item = button.closest(".faq-item");
-        const answer = item.querySelector(".faq-answer");
-        const isOpen = item.classList.contains("active");
+document.querySelectorAll(".faq-question").forEach((faqQuestionButton) => {
+    faqQuestionButton.addEventListener("click", () => {
+        const faqItem = faqQuestionButton.closest(".faq-item");
+        if (!faqItem) {
+            return;
+        }
 
-        if (isOpen) {
+        const faqAnswer = faqItem.querySelector(".faq-answer");
+        if (!(faqAnswer instanceof HTMLElement)) {
+            return;
+        }
+
+        const isFaqItemOpen = faqItem.classList.contains("active");
+
+        if (isFaqItemOpen) {
             // CLOSE
-            item.classList.add("closing");
-            answer.style.height = answer.scrollHeight + "px";
+            faqItem.classList.add("closing");
+            faqAnswer.style.height = faqAnswer.scrollHeight + "px";
 
             requestAnimationFrame(() => {
-                answer.style.height = "0px";
+                faqAnswer.style.height = "0px";
             });
 
-            item.classList.remove("active");
+            faqItem.classList.remove("active");
 
             setTimeout(() => {
-                item.classList.remove("closing");
+                faqItem.classList.remove("closing");
             }, 450);
         } else {
             // OPEN
-            item.classList.add("active");
-            answer.style.height = answer.scrollHeight + "px";
+            faqItem.classList.add("active");
+            faqAnswer.style.height = faqAnswer.scrollHeight + "px";
         }
     });
 });
