@@ -11,6 +11,8 @@ npm run dev
 
 Run `npm run build` and `npm run lint` before publishing.
 
+Run `npm run start` to start local windows build.\
+
 ## Senior-member document access
 
 Document viewing is public. Uploading requires Google sign-in with an email address explicitly listed in `SENIOR_MEMBER_EMAILS`. Addresses can be Gmail accounts or other verified Google accounts; no `@uottawa.ca` address is required. Authorization is checked by the upload API, not only by the page UI.

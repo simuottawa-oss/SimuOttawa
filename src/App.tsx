@@ -45,6 +45,14 @@ const projectFaqs = [
   ['What is the goal of the engine?', 'The goal is to make complex physical ideas easier to build, see, test, and understand—and to give students meaningful experience doing it.'],
 ]
 
+const FUN_FACTS = [
+  "Ever wanted to see pigs fly?",
+  "You're a cool cat.",
+  "The first computer mouse was made of wood.",
+  "We all start from somewhere, glad you're starting here : ) .",
+  ":) :O :O :O :).",
+  "Twister was the first movie released on DVD"];
+
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>
 }
@@ -61,7 +69,7 @@ function Header({ route }: { route: string }) {
     <header className="site-header">
       <a className="brand" href="#/" aria-label="SimuOttawa home">
         <img src="/assets/simu-logo.svg" alt="" />
-        <span>SIMU<em>O</em></span>
+        <span>Simu<em>Ottawa</em></span>
       </a>
       <button
         className="menu-button"
@@ -99,21 +107,28 @@ function PageIntro({ index, eyebrow, title, lede }: { index: string; eyebrow: st
 }
 
 function HomePage() {
+  const [funFact, setFunFact] = useState(FUN_FACTS[0]);
+
+  useEffect(() => {
+    const index = Math.floor(Math.random() * FUN_FACTS.length);
+    setFunFact(FUN_FACTS[index]);
+  }, []);
+
   return (
     <main>
       <section className="hero-section section-shell">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> University of Ottawa · Student-led</p>
-          <h1>Where physics meets <span className="accent-word">pixels.</span></h1>
-          <p className="hero-lede">We build SimuO—an open-source 3D physics engine—and give students a place to turn theory into things that move.</p>
+          <h1>You <span className="accent-word">Build.</span></h1>
+          <h1>We <span className="accent-word">Simulate.</span></h1>
+          <p className="hero-lede">{funFact}</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#/projects">Explore our work <ArrowIcon /></a>
             <a className="text-link" href="#/about">How the club works <span aria-hidden="true">→</span></a>
           </div>
           <dl className="hero-stats">
-            <div><dt>01</dt><dd>Engine</dd></div>
-            <div><dt>∞</dt><dd>Possibilities</dd></div>
-            <div><dt>100%</dt><dd>Student built</dd></div>
+            <div><dt>50+</dt><dd>Members</dd></div>
+            <div><dt>∞</dt><dd>Coffees Drunk</dd></div>
+            <div><dt>100%</dt><dd>Beginner Friendly</dd></div>
           </dl>
         </div>
         <div className="hero-visual" aria-hidden="true">
@@ -132,8 +147,8 @@ function HomePage() {
       <section className="intro-section section-shell">
         <p className="section-index">01 / ABOUT</p>
         <div className="intro-copy">
-          <h2>A lab for curious minds.</h2>
-          <p>SimuOttawa brings together developers, designers, physicists, and organizers to build ambitious simulations while learning from each other.</p>
+          <h2>Infinite Possibilities.</h2>
+          <p>SimuOttawa works toward simplifying the process of building models and creating accurate 3D physics simulations to allow for as much creativity as possible.</p>
           <a className="text-link" href="#/about">Discover the club <span aria-hidden="true">→</span></a>
         </div>
       </section>
@@ -466,8 +481,8 @@ function Footer() {
     <footer className="site-footer">
       <div className="section-shell footer-main">
         <div className="footer-brand-block">
-          <a className="brand" href="#/" aria-label="SimuOttawa home"><img src="/assets/simu-logo.svg" alt="" /><span>SIMU<em>O</em></span></a>
-          <p>Physics, rendered by students. Built together at the University of Ottawa.</p>
+          <a className="brand" href="#/" aria-label="SimuOttawa home"><img src="/assets/simu-logo.svg" alt="" /><span>Simu<em>Ottawa</em></span></a>
+          <p>Physics, rendered by students. Glad to have you!</p>
           <div className="footer-focus"><p className="footer-kicker">Curious about the club?</p><a className="button" href="#/contact">Find your way in <ArrowIcon /></a></div>
         </div>
         <nav className="footer-nav" aria-label="Footer navigation"><p>Explore SimuOttawa</p>{navItems.slice(1).map((item) => <a key={item} href={`#/${item.toLowerCase()}`}>{item}</a>)}</nav>
