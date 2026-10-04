@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars for local development.
+# Keep real credentials out of Git; .dev.vars is ignored.
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+AUTH_SECRET=
+SENIOR_MEMBER_EMAILS=senior1@gmail.com,senior2@gmail.com
