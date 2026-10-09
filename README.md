@@ -1,6 +1,6 @@
 # SimuOttawa website
 
-The SimuOttawa club website is a client-side React application built with Vite. The site does not provide document uploads, user accounts, APIs, or database storage. The Documentation page links to external project resources.
+The SimuOttawa club website is a standalone client-side React application built with Vite. It has no hosting-provider integration, server, API, document storage, user accounts, or database. Build the static site with `npm run build` and deploy the generated `dist/` directory to any static web host you choose.
 
 ## Development
 
