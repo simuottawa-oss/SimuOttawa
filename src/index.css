@@ -12,6 +12,9 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Manrope', sans-serif;
   --font-mono: 'DM Mono', monospace;
+  --heading-display: clamp(3.75rem, 7vw, 7rem);
+  --heading-page: clamp(3.2rem, 5.8vw, 5.8rem);
+  --heading-section: clamp(2.1rem, 3.7vw, 3.7rem);
   color: var(--text);
   background: var(--bg);
   font-family: var(--font-body);
