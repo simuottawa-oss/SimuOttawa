@@ -10,9 +10,6 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-.next
-.vinext
-.wrangler
 .dev.vars
 *.tsbuildinfo
 *.local

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useState } from 'react'
 
 const links = {
   discord: 'https://discord.gg/PYRASrnQ2x',
@@ -9,23 +9,6 @@ const links = {
 }
 
 const navItems = ['Home', 'About', 'Projects', 'Documentation', 'FAQ', 'Contact']
-
-type DocumentItem = {
-  id: string
-  title: string
-  description: string
-  fileName: string
-  contentType: string
-  size: number
-  uploadedAt: string
-}
-
-type AuthSession = {
-  configured: boolean
-  authenticated: boolean
-  canUpload: boolean
-  user: { email: string; name: string } | null
-}
 
 const clubFaqs = [
   ['How do I join SimuOttawa?', 'Join our Discord server and introduce yourself. It is the quickest way to meet the team, see current opportunities, and hear about the next meeting.'],
@@ -107,12 +90,7 @@ function PageIntro({ index, eyebrow, title, lede }: { index: string; eyebrow: st
 }
 
 function HomePage() {
-  const [funFact, setFunFact] = useState(FUN_FACTS[0]);
-
-  useEffect(() => {
-    const index = Math.floor(Math.random() * FUN_FACTS.length);
-    setFunFact(FUN_FACTS[index]);
-  }, []);
+  const [funFact] = useState(() => FUN_FACTS[Math.floor(Math.random() * FUN_FACTS.length)]);
 
   return (
     <main>
@@ -228,205 +206,27 @@ function ProjectsPage() {
   )
 }
 
-function formatFileSize(bytes: number) {
-  if (bytes < 1024) return `${bytes} B`
-  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
-}
-
 function DocumentationPage() {
-  const [documents, setDocuments] = useState<DocumentItem[]>([])
-  const [query, setQuery] = useState('')
-  const [loading, setLoading] = useState(true)
-  const [uploading, setUploading] = useState(false)
-  const [deletingId, setDeletingId] = useState<string | null>(null)
-  const [deleteError, setDeleteError] = useState('')
-  const [error, setError] = useState('')
-  const [success, setSuccess] = useState('')
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const [auth, setAuth] = useState<AuthSession | null>(null)
-  const [authError, setAuthError] = useState(() => {
-    if (typeof window === 'undefined') return ''
-    const result = new URLSearchParams(window.location.hash.split('?')[1] || '').get('auth')
-    return result === 'failed' ? 'Sign-in was not completed. Please try again with your @uottawa.ca account.' : ''
-  })
-
-  useEffect(() => {
-    let active = true
-    fetch('/api/documents')
-      .then(async (response) => {
-        if (!response.ok) throw new Error('The document library could not be loaded.')
-        return response.json() as Promise<{ documents: DocumentItem[] }>
-      })
-      .then((data) => { if (active) setDocuments(data.documents) })
-      .catch((reason: Error) => { if (active) setError(reason.message) })
-      .finally(() => { if (active) setLoading(false) })
-    return () => { active = false }
-  }, [])
-
-  useEffect(() => {
-    let active = true
-    fetch('/api/auth/session')
-      .then(async (response) => {
-        if (!response.ok) throw new Error('Senior-member access could not be checked.')
-        return response.json() as Promise<AuthSession>
-      })
-      .then((session) => { if (active) setAuth(session) })
-      .catch((reason: Error) => { if (active) setAuthError(reason.message) })
-    return () => { active = false }
-  }, [])
-
-  const filteredDocuments = useMemo(() => {
-    const needle = query.trim().toLowerCase()
-    if (!needle) return documents
-    return documents.filter((document) => `${document.title} ${document.description} ${document.fileName}`.toLowerCase().includes(needle))
-  }, [documents, query])
-
-  async function uploadDocument(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const form = event.currentTarget
-    setUploading(true)
-    setError('')
-    setSuccess('')
-
-    try {
-      const response = await fetch('/api/documents', { method: 'POST', body: new FormData(form) })
-      const data = await response.json() as { document?: DocumentItem; error?: string }
-      if (!response.ok || !data.document) throw new Error(data.error || 'The document could not be uploaded.')
-      setDocuments((current) => [data.document!, ...current])
-      setSuccess(`“${data.document.title}” is now available to everyone.`)
-      form.reset()
-      setSelectedFile(null)
-    } catch (reason) {
-      setError(reason instanceof Error ? reason.message : 'The document could not be uploaded.')
-    } finally {
-      setUploading(false)
-    }
-  }
-
-  async function removeDocument(document: DocumentItem) {
-    if (!window.confirm(`Permanently remove “${document.title}” from the shared library?`)) return
-
-    setDeletingId(document.id)
-    setDeleteError('')
-    try {
-      const response = await fetch(`/api/documents/${encodeURIComponent(document.id)}`, { method: 'DELETE' })
-      const data = await response.json() as { error?: string }
-      if (!response.ok) throw new Error(data.error || 'The document could not be removed.')
-      setDocuments((current) => current.filter((item) => item.id !== document.id))
-    } catch (reason) {
-      setDeleteError(reason instanceof Error ? reason.message : 'The document could not be removed.')
-    } finally {
-      setDeletingId(null)
-    }
-  }
+  const resources = [
+    ['SimuO source code', 'Browse the engine, review open issues, and contribute to development.', 'https://github.com/simuottawa-oss/Python-version'],
+    ['Project discussions', 'Meet the team and find out how to get involved in current work.', 'https://discord.gg/VREs6zwRsq'],
+  ]
 
   return (
     <main>
-      <section className="docs-hero section-shell">
-        <div className="docs-intro">
-          <p className="section-index">03 / DOCUMENTATION</p>
-          <h1>Knowledge should be easy to find.</h1>
-          <p>Upload specifications, architecture notes, research, guides, and other technical documents. Everything here is shared publicly with the SimuOttawa community.</p>
-          <ul>
-            <li>PDF, Markdown, text, data, and Word files</li>
-            <li>Maximum file size: 15 MB</li>
-            <li>Publicly viewable after upload</li>
-          </ul>
-        </div>
-
-        {!auth && !authError && <div className="access-panel"><span>MEMBER ACCESS</span><h2>Checking upload access…</h2></div>}
-
-        {auth && !auth.configured && (
-          <div className="access-panel">
-            <span>MEMBER ACCESS</span>
-            <h2>Senior sign-in is being configured.</h2>
-            <p>The public document library is available now. Uploading will open after the club’s Google sign-in details are connected.</p>
-          </div>
-        )}
-
-        {auth?.configured && !auth.authenticated && (
-          <div className="access-panel">
-            <span>SENIOR MEMBERS</span>
-            <h2>Sign in to upload.</h2>
-            <p>Document uploads are limited to approved senior club members. Sign in with the Google account whose email address is on the club’s access list.</p>
-            <a className="button button-primary" href="/api/auth/login">Sign in with Google <ArrowIcon /></a>
-            {authError && <p className="form-message is-error" role="alert">{authError}</p>}
-          </div>
-        )}
-
-        {auth?.authenticated && !auth.canUpload && (
-          <div className="access-panel">
-            <span>SENIOR MEMBERS</span>
-            <h2>This account is not approved.</h2>
-            <p>You are signed in as <strong>{auth.user?.email}</strong>, but this address is not on the senior-member upload list.</p>
-            <a className="button button-outline" href="/api/auth/logout">Sign out</a>
-          </div>
-        )}
-
-        {auth?.canUpload && (
-          <form className="upload-panel" onSubmit={uploadDocument}>
-            <div className="member-bar"><span>{auth.user?.email}</span><a href="/api/auth/logout">Sign out</a></div>
-            <div className="upload-heading"><span>UPLOAD</span><h2>Add a document</h2></div>
-            <label>Document title <span>Optional</span><input name="title" type="text" maxLength={160} placeholder="Uses the filename if left blank" /></label>
-            <label>Description <span>Optional</span><textarea name="description" maxLength={500} rows={3} placeholder="What is this document for?" /></label>
-            <label className={selectedFile ? 'file-drop has-file' : 'file-drop'}>
-              <input
-                name="file"
-                type="file"
-                required
-                accept=".pdf,.md,.txt,.rst,.json,.yaml,.yml,.xml,.csv,.log,.doc,.docx"
-                onChange={(event) => setSelectedFile(event.target.files?.[0] ?? null)}
-              />
-              <strong>{selectedFile ? selectedFile.name : 'Choose a document'}</strong>
-              <span aria-live="polite">
-                {selectedFile ? `${formatFileSize(selectedFile.size)} · Ready to upload` : 'or drag it here'}
-              </span>
-            </label>
-            <button className="button button-primary" type="submit" disabled={uploading}>{uploading ? 'Uploading…' : 'Upload document'} <ArrowIcon /></button>
-            {error && <p className="form-message is-error" role="alert">{error}</p>}
-            {success && <p className="form-message is-success" role="status">{success}</p>}
-          </form>
-        )}
-
-        {!auth && authError && <div className="access-panel"><span>MEMBER ACCESS</span><h2>Access check unavailable.</h2><p>{authError}</p></div>}
-      </section>
-
-      <section className="document-library section-shell">
-        <div className="library-heading">
-          <div><p className="section-index">SHARED LIBRARY</p><h2>Technical documents</h2></div>
-          <label className="document-search"><span className="sr-only">Search documents</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the library" /></label>
-        </div>
-
-        {loading && <div className="library-state">Loading documents…</div>}
-        {!loading && error && documents.length === 0 && <div className="library-state is-error">{error}</div>}
-        {!loading && !error && documents.length === 0 && <div className="library-state"><strong>No documents yet.</strong><span>Upload the first technical document using the form above.</span></div>}
-        {!loading && documents.length > 0 && filteredDocuments.length === 0 && <div className="library-state"><strong>No matches.</strong><span>Try a different search term.</span></div>}
-        {deleteError && <p className="form-message is-error" role="alert">{deleteError}</p>}
-
-        <div className="document-grid">
-          {filteredDocuments.map((document) => {
-            const extension = document.fileName.split('.').pop()?.toUpperCase() || 'FILE'
-            return (
-              <article className="document-card" key={document.id}>
-                <a className="document-card-link" href={`/api/documents/${encodeURIComponent(document.id)}`} target="_blank" rel="noreferrer">
-                  <div className="document-card-top"><span className="file-type">{extension}</span><span aria-hidden="true">↗</span></div>
-                  <h3>{document.title}</h3>
-                  {document.description && <p>{document.description}</p>}
-                  <div className="document-meta"><span>{document.fileName}</span><span>{formatFileSize(document.size)} · {new Date(document.uploadedAt).toLocaleDateString()}</span></div>
-                </a>
-                {auth?.canUpload && <button className="document-delete" type="button" disabled={deletingId === document.id} onClick={() => void removeDocument(document)} aria-label={`Remove ${document.title}`}>
-                  {deletingId === document.id ? 'Removing…' : 'Remove document'}
-                </button>}
-              </article>
-            )
-          })}
-        </div>
+      <PageIntro index="03" eyebrow="Documentation" title="Explore the project." lede="SimuOttawa does not host documents on this website. Find project materials and connect with the team through these external resources." />
+      <section className="resource-list section-shell">
+        {resources.map(([title, description, url], index) => (
+          <a className="resource-row" href={url} target="_blank" rel="noreferrer" key={title}>
+            <span className="project-number">0{index + 1}</span>
+            <div><h2>{title}</h2><p>{description}</p></div>
+            <ArrowIcon />
+          </a>
+        ))}
       </section>
     </main>
   )
 }
-
 function FaqGroup({ title, items }: { title: string; items: string[][] }) {
   return (
     <section className="faq-group">
